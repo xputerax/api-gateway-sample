@@ -11,7 +11,6 @@ services:
     image: krakend
     command: run --config /etc/krakend/krakend.json
     volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
     - ./krakend:/etc/krakend
     networks:
     - krakend
