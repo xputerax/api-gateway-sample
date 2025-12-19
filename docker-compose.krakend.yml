@@ -1,0 +1,22 @@
+services:
+  auth:
+    image: apigwsample/auth
+    networks:
+    - krakend
+  product:
+    image: apigwsample/product
+    networks:
+    - krakend
+  krakend:
+    image: krakend
+    command: run --config /etc/krakend/krakend.json
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - ./krakend:/etc/krakend
+    networks:
+    - krakend
+    ports:
+    - 8080:8080
+
+networks:
+  krakend:
