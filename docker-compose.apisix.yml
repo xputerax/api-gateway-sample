@@ -1,0 +1,24 @@
+services:
+  auth:
+    image: apigwsample/auth
+    networks:
+    - apisix
+  product:
+    image: apigwsample/product
+    networks:
+    - apisix
+  apisix:
+    image: apache/apisix:3.14.1-debian
+    volumes:
+    - ./apisix/conf/apisix.yaml:/usr/local/apisix/conf/apisix.yaml
+    - ./apisix/conf/config.yaml:/usr/local/apisix/conf/config.yaml
+    ports:
+    - 8080:9080
+    # - 9180:9180
+    environment:
+    - APISIX_STAND_ALONE=true
+    networks:
+    - apisix
+
+networks:
+  apisix:

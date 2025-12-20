@@ -1,0 +1,17 @@
+routes:
+  -
+    id: product
+    uri: /api/product/*
+    upstream:
+      nodes:
+        "product:8080": 1
+    plugins:
+      proxy-rewrite:
+        regex_uri: ["/api/product/(.*)", "/api/$1"]
+  -
+      id: auth
+      uri: /api/auth
+      upstream:
+        nodes:
+          "auth:8080": 1
+#END

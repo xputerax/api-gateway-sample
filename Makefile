@@ -13,3 +13,8 @@ use-krakend:
 	docker compose -f docker-compose.krakend.yml up -d
 	docker compose ps
 	docker compose top
+
+use-apisix:
+	docker compose -f docker-compose.apisix.yml up -d
+	docker compose ps
+	docker compose top

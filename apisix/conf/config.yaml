@@ -1,0 +1,12 @@
+deployment:
+  role: data_plane
+  role_data_plane:
+    config_provider: yaml
+  #admin:
+  #  enable_admin_ui: true
+  #  admin_key_required: false
+  #  allow_admin:
+  #    - 0.0.0.0/0
+  #  admin_listen:
+  #    ip: 0.0.0.0
+  #    port: 9180
