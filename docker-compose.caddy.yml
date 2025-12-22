@@ -1,0 +1,20 @@
+services:
+  caddy:
+    image: caddy:2.10.2-alpine
+    networks:
+    - caddy
+    volumes:
+    - ./caddy:/etc/caddy
+    ports:
+    - 8080:8080
+  auth:
+    image: apigwsample/auth
+    networks:
+    - caddy
+  product:
+    image: apigwsample/product
+    networks:
+    - caddy
+
+networks:
+  caddy:

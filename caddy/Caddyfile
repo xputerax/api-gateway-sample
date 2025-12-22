@@ -1,0 +1,16 @@
+:8080
+
+handle_path /product/* {
+    rewrite * /api{path}
+    reverse_proxy product:8080  # Microservice A
+}
+
+handle_path /auth {
+    rewrite * /api/auth
+    reverse_proxy auth:8080  # Microservice A
+}
+
+# Optional: fallback for unmatched paths (e.g., 404 or another service)
+handle {
+    respond "Not found" 404
+}

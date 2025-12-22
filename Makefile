@@ -18,3 +18,8 @@ use-apisix:
 	docker compose -f docker-compose.apisix.yml up -d
 	docker compose ps
 	docker compose top
+
+use-caddy:
+	docker compose -f docker-compose.caddy.yml up -d
+	docker compose ps
+	docker compose top
